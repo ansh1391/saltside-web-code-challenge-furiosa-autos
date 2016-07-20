@@ -1,0 +1,56 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	padding: 2rem;
+}
+
+.services_grid{
+	&> .col-md-4{
+		padding:0px;
+	}
+}
+.service_tile{
+	border:1px solid #666666;
+	border-radius: 0px;
+	margin:2px;
+	height:100px;
+
+	&> div{
+		height:100%;
+	}
+	.service_type{
+		font-size:xx-large;
+		border-right:1px solid #999999;
+		text-align:center;
+		padding-top:25px;
+		background-color:#cccccc;
+	}
+	.service_heading{
+		height:60%;
+		font-size:x-large;
+    	line-height: 20px;
+    	padding-top: 10px;
+	}
+
+	.service_cost{
+		color: #666666;
+	}
+}
+
+.noSelect {
+	user-select:none;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+}
+
+#searchReviews{
+	.input-group-addon{
+		cursor:pointer;
+		.noSelect;
+	}
+}

@@ -1,0 +1,20 @@
+extends _shared
+
+block body
+	.models
+		h2 Models we work on
+
+		//- Implement sorting here
+		div.row
+			div.col-xs-12
+				label Sort by:
+				select.form-control(onchange="location.href='/models'+(this.value?('?sort='+this.value):'')")
+					option(value="",selected=(!sortedOn)) None
+					option(value="asc",selected=(sortedOn=='asc')) Ascending
+					option(value="desc",selected=(sortedOn=='desc')) Descending
+		
+		table.table
+			for model in models
+				tr.active
+					td
+						h4= model

@@ -1,0 +1,30 @@
+extends _shared
+
+block body
+	.services
+		h2 Services we provide
+
+		//- Implement filtering here
+		div.row
+			div.col-xs-12
+				label Filter by:
+				select.form-control(onchange="location.href='/services'+(this.value?('?type='+this.value):'')")
+					option(value="",selected=(!filteredOn)) All
+					option(value="repair",selected=(filteredOn=='repair')) Repair
+					option(value="maintenance",selected=(filteredOn=='maintenance')) Maintenance
+					option(value="cosmetic",selected=(filteredOn=='cosmetic')) Cosmetic
+		br
+		mixin service_tile(job,cost,type)
+			div.row.service_tile
+				div.col-xs-4.service_type= type.toUpperCase()[0]
+				div.col-xs-8
+					div.row
+						div.col-xs-12.service_heading= job
+					div.row
+						div.col-xs-12.service_cost= cost
+
+		div.row.services_grid
+			for service in services
+				div.col-md-4
+					+service_tile(service.job,service.cost,service.type)
+

@@ -1,0 +1,17 @@
+extends _shared
+
+block body
+	.reviews
+		h2 Customer reviews
+
+		//- Implement search here
+		form(id="searchReviews",name="searchReviews",action="/reviews",method="get")
+			div.form-group
+				div.input-group
+					input.form-control(type="text",name="searchterm",value=searchterm?searchterm:"",placeholder="Search reviews")
+					div.input-group-addon(onclick="document.getElementById('searchReviews').submit()")= "Search"
+		
+		for review in reviews
+			blockquote
+				p= review.content
+				footer= review.source
